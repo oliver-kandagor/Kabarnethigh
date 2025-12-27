@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Kabarnet High School Brand Colors */
+    --background: 45 30% 97%;
+    --foreground: 150 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 40% 10%;
+
+    /* School Green - Primary */
+    --primary: 120 75% 22%;
+    --primary-foreground: 45 30% 97%;
+
+    /* School Gold - Secondary */
+    --secondary: 45 95% 55%;
+    --secondary-foreground: 150 40% 10%;
+
+    /* Cream tones */
+    --muted: 45 20% 92%;
+    --muted-foreground: 150 20% 40%;
+
+    /* Gold accent */
+    --accent: 45 95% 55%;
+    --accent-foreground: 150 40% 10%;
+
+    /* Maroon for ribbon/emphasis */
+    --destructive: 0 60% 35%;
+    --destructive-foreground: 45 30% 97%;
+
+    --border: 45 15% 85%;
+    --input: 45 15% 85%;
+    --ring: 120 75% 22%;
+
+    --radius: 0.5rem;
+
+    /* Custom school tokens */
+    --school-green: 120 75% 22%;
+    --school-green-light: 120 50% 35%;
+    --school-gold: 45 95% 55%;
+    --school-gold-dark: 40 90% 45%;
+    --school-maroon: 0 60% 35%;
+    --school-cream: 45 30% 97%;
+    --school-cream-dark: 45 20% 92%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(120 75% 22% / 0.95), hsl(120 50% 35% / 0.85));
+    --gradient-gold: linear-gradient(135deg, hsl(45 95% 55%), hsl(40 90% 45%));
+    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 0% / 0.4), hsl(0 0% 0% / 0.7));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(120 75% 22% / 0.15);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.1);
+    --shadow-gold: 0 4px 20px -4px hsl(45 95% 55% / 0.4);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 120 75% 22%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 45 20% 92%;
+    --sidebar-accent-foreground: 120 75% 22%;
+    --sidebar-border: 45 15% 85%;
+    --sidebar-ring: 120 75% 22%;
+  }
+
+  .dark {
+    --background: 150 40% 8%;
+    --foreground: 45 30% 97%;
+
+    --card: 150 30% 12%;
+    --card-foreground: 45 30% 97%;
+
+    --popover: 150 30% 12%;
+    --popover-foreground: 45 30% 97%;
+
+    --primary: 45 95% 55%;
+    --primary-foreground: 150 40% 10%;
+
+    --secondary: 120 50% 25%;
+    --secondary-foreground: 45 30% 97%;
+
+    --muted: 150 20% 18%;
+    --muted-foreground: 45 20% 70%;
+
+    --accent: 45 95% 55%;
+    --accent-foreground: 150 40% 10%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 45 30% 97%;
+
+    --border: 150 20% 20%;
+    --input: 150 20% 20%;
+    --ring: 45 95% 55%;
+
+    --sidebar-background: 150 30% 10%;
+    --sidebar-foreground: 45 30% 97%;
+    --sidebar-primary: 45 95% 55%;
+    --sidebar-primary-foreground: 150 40% 10%;
+    --sidebar-accent: 150 20% 18%;
+    --sidebar-accent-foreground: 45 30% 97%;
+    --sidebar-border: 150 20% 20%;
+    --sidebar-ring: 45 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+    pointer-events: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--school-gold)), hsl(var(--school-gold-dark)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 3D Flip Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+/* Custom Loader */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side, #ffa516 94%, #0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%, #ffa516);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn)
+  }
+}

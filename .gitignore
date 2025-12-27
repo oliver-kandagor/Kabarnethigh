@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+*.sw?
+.DS_Store
+
+# Large unused asset folders
+src/assets/AGM 2024/
+src/assets/ALUMNI 2022/
+src/assets/KBT FINAL 001/
+src/assets/AERIAL VIEWS/
+src/assets/kabarnt agm/
+src/assets/kabarnt_agm/
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
