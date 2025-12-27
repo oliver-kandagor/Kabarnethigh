@@ -1,12 +1,12 @@
 import { ArrowRight, Calendar, ZoomIn } from "lucide-react";
-import samoeiHostel from "@/assets/School-photos/School-magazine/samoei-hostel.jpg";
+import samoeiHostel from "@/assets/Site Files/samoei-hostel.jpg";
 import presidentRuto from "@/assets/PresidentRuto.png";
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { ImageViewerModal } from "@/components/ui/ImageViewerModal";
 
 // Load Kipla Photos dynamically
-const kiplaPhotos = import.meta.glob('/src/assets/KIPLA PHOTOS/*.{jpg,jpeg,png,JPG}', { eager: true, import: 'default' });
+const kiplaPhotos = import.meta.glob('/src/assets/Site Files/Kipla/*.{jpg,jpeg,png,JPG}', { eager: true, import: 'default' });
 const openingCeremonyImages = Object.values(kiplaPhotos) as string[];
 
 export function SamoeiHostelFeature() {

@@ -7,7 +7,7 @@ import { ComingSoonModal } from "@/components/ui/ComingSoonModal";
 import { ImageViewerModal } from "@/components/ui/ImageViewerModal";
 
 // Magazine Assets
-import magazinePdf2025 from "@/assets/School-photos/School-magazine/kabarnet_magazine.pdf";
+import magazinePdf2025 from "@/assets/Site Files/Magazine/kabarnet_magazine.pdf";
 import coverImage2025 from "@/assets/About/image.png";
 
 // 1997 Assets (Assuming these imports work based on user request)

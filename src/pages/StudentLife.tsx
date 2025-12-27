@@ -13,7 +13,7 @@ import campusPanoramic from "@/assets/campus-panoramic.jpg";
 import sportsField from "@/assets/sports-field.jpg";
 // Fallback for others
 import dormView from "@/assets/Site Files/Dorm_views.JPG";
-import samoeiHostel from "@/assets/School-photos/School-magazine/samoei-hostel.jpg";
+import samoeiHostel from "@/assets/Site Files/samoei-hostel.jpg";
 import { getMagazineImage } from "@/utils/magazine-loader";
 
 // New Components
