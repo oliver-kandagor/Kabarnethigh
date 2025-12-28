@@ -9,6 +9,7 @@ import { NewsSection } from "@/components/sections/NewsSection";
 import { AlumniSection } from "@/components/sections/CTASection";
 import { MagazineSection } from "@/components/sections/MagazineSection";
 import { FeatureSlideshow } from "@/components/sections/FeatureSlideshow";
+import { DeveloperSection } from "@/components/sections/DeveloperSection";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -32,6 +33,7 @@ const Index = () => {
         <LeadershipSection />
         <NewsSection />
         <AlumniSection />
+        <DeveloperSection />
       </Layout>
     </>
   );

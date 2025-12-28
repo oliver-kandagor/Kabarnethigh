@@ -205,13 +205,9 @@ export function PrincipalWelcome() {
                     <h3 className="font-display text-2xl md:text-3xl font-bold">Presidential Infrastructure</h3>
                     <div className="h-1 w-20 bg-primary mx-auto mt-4 rounded-full" />
                 </div>
-                <div className="grid lg:grid-cols-2 gap-8">
-                    <div className="scale-95 origin-top">
-                        <MoiHostelFeature />
-                    </div>
-                    <div className="scale-95 origin-top">
-                        <SamoeiHostelFeature />
-                    </div>
+                <div className="space-y-12">
+                    <MoiHostelFeature />
+                    <SamoeiHostelFeature />
                 </div>
             </div>
         </section>
