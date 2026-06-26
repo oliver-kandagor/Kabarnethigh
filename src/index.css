@@ -276,3 +276,136 @@
     transform: rotate(1turn)
   }
 }
+
+/* ============= GLASSMORPHISM & LIQUID EFFECTS ============= */
+
+/* Glass Morphism Utilities */
+.glass-blur-16 {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(27, 67, 50, 0.15);
+  border: 1.5px solid rgba(212, 165, 116, 0.4);
+}
+
+.glass-blur-12 {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(27, 67, 50, 0.15);
+  border: 1.5px solid rgba(212, 165, 116, 0.4);
+}
+
+.glass-blur-8 {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(27, 67, 50, 0.25);
+  border: 1.5px solid rgba(212, 165, 116, 0.4);
+}
+
+.glass-card {
+  @apply glass-blur-16 rounded-2xl shadow-lg;
+}
+
+/* Parallax Effect */
+.parallax-image {
+  will-change: transform;
+}
+
+/* Liquid Wave Animation */
+@keyframes liquidWave {
+  0%, 100% {
+    d: path('M 0,200 Q 75,150 150,200 T 300,200 L 300,400 L 0,400 Z');
+  }
+  25% {
+    d: path('M 0,200 Q 75,180 150,200 T 300,200 L 300,400 L 0,400 Z');
+  }
+  50% {
+    d: path('M 0,200 Q 75,220 150,200 T 300,200 L 300,400 L 0,400 Z');
+  }
+  75% {
+    d: path('M 0,200 Q 75,180 150,200 T 300,200 L 300,400 L 0,400 Z');
+  }
+}
+
+.liquid-wave {
+  animation: liquidWave 4s ease-in-out infinite;
+}
+
+/* Staggered Card Animations */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-fade-in-zoom {
+  animation: fadeInZoom 0.5s ease-out forwards;
+}
+
+/* Mobile Responsive Glass */
+@media (max-width: 640px) {
+  .glass-blur-16 {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(27, 67, 50, 0.25);
+  }
+
+  .glass-blur-12 {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(27, 67, 50, 0.25);
+  }
+
+  .liquid-wave {
+    display: none;
+  }
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .glass-blur-16,
+  .glass-blur-12,
+  .glass-blur-8,
+  .parallax-image,
+  .liquid-wave,
+  .animate-slide-in-right,
+  .animate-slide-in-left,
+  .animate-fade-in-zoom {
+    animation: none !important;
+    transition: none !important;
+  }
+}

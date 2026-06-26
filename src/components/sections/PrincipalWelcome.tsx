@@ -1,92 +1,95 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, X, BookOpen } from "lucide-react";
-import principalImg from "@/assets/school_principal.png";
+import principalImg from "@/assets/2.jpg";
 import { useState } from "react";
 import { MoiHostelFeature } from "@/components/sections/boarding/MoiHostelFeature";
 import { SamoeiHostelFeature } from "@/components/sections/boarding/SamoeiHostelFeature";
 import { createPortal } from "react-dom";
+import { GlassCard } from "@/components/effects/GlassCard";
+import { LiquidWave } from "@/components/effects/LiquidWave";
 
 export function PrincipalWelcome() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <section className="py-24 bg-transparent relative overflow-hidden">
+        <section className="py-16 sm:py-24 md:py-32 bg-background relative overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Image Column */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+                    {/* Image Column - Image Reveal (80% focus) */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="relative"
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        className="order-2 lg:order-1 relative"
                     >
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white/50">
+                        {/* Principal Image with Green Border */}
+                        <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#1B4332] aspect-square sm:aspect-auto">
                             <img
                                 src={principalImg}
                                 alt="Chief Principal Mr. Julius N. Ndirangu"
-                                className="w-full h-auto object-cover"
+                                className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-8">
+                            {/* Overlay with title at bottom */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 sm:p-8">
                                 <div>
-                                    <h3 className="text-white font-display text-2xl font-bold">Mr. Julius N. Ndirangu</h3>
-                                    <p className="text-white/90 font-medium">Chief Principal</p>
+                                    <h3 className="text-white font-display text-xl sm:text-2xl font-bold">Mr. Julius N. Ndirangu</h3>
+                                    <p className="text-white/90 text-sm sm:text-base font-medium">Chief Principal</p>
                                 </div>
                             </div>
                         </div>
-                        {/* Decorative Element */}
-                        <div className="absolute -z-10 top-1/2 -left-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
                     </motion.div>
 
-                    {/* Content Column */}
+                    {/* Content Column - Glassmorphic Message */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
+                        className="order-1 lg:order-2 relative"
                     >
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                            From the Chief Principal's Desk
-                        </span>
-                        <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-8">
-                            Welcoming <span className="text-primary">Remarks</span>
-                        </h2>
-
-                        <div className="space-y-6 text-muted-foreground text-lg leading-relaxed mb-8">
-                            <p>
-                                "Today marks a watershed moment in the rich tapestry of Kabarnet High School's legacy.
-                                As I hold the inaugural issue of The Patriarch's School Magazine, I am reminded of a
-                                farmer who, after months of careful cultivation, finally witnesses the first green
-                                shoots breaking through the earth."
-                            </p>
-                            <p>
-                                "This magazine represents far more than printed pages bound together—it is the fertile
-                                ground where young minds plant their thoughts and watch them bloom into profound expression.
-                                In an age where digital noise often drowns authentic voices, this magazine stands as an
-                                oasis of thoughtful discourse and creative expression."
-                            </p>
-                            <p className="font-medium text-foreground">
-                                "This publication will carve new pathways for intellectual growth and artistic exploration..."
-                            </p>
+                        {/* Liquid Wave Background (hidden on mobile) */}
+                        <div className="absolute -top-16 -left-8 -right-8 hidden lg:block opacity-50">
+                            <LiquidWave color="both" height={100} hideOnMobile={true} />
                         </div>
 
-                        <button
-                            onClick={() => setIsOpen(true)}
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/25 font-medium group"
-                        >
-                            <BookOpen className="w-4 h-4" />
-                            Read Full Message
-                        </button>
+                        {/* Glass Card with Message */}
+                        <GlassCard blurLevel="heavy" className="relative z-10 border-l-4 border-[#D4A574]">
+                            <span className="inline-block px-3 py-1 rounded-full bg-[#D4A574]/20 text-[#D4A574] text-xs sm:text-sm font-medium mb-4 uppercase tracking-wider">
+                                From the Chief Principal's Desk
+                            </span>
+                            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+                                Welcoming <span className="text-[#D4A574]">Remarks</span>
+                            </h2>
 
-                        <div className="mt-8 p-6 bg-muted/50 rounded-xl border border-border">
-                            <Quote className="w-8 h-8 text-primary/40 mb-4" />
-                            <p className="italic text-foreground font-medium">
-                                "Shakuntala Devi said, 'Education is not about going to school and getting a degree.
-                                It is about widening your knowledge and absorbing the truth about life.' For this reason,
-                                I am proud to be associated with the production of The Patriarchs."
-                            </p>
-                        </div>
+                            <div className="space-y-4 text-white/90 text-sm sm:text-base leading-relaxed mb-6">
+                                <p>
+                                    "Today marks a watershed moment in Kabarnet High School's legacy. As I hold this inaugural magazine, I am reminded of a farmer witnessing the first green shoots breaking through earth after months of careful cultivation."
+                                </p>
+                                <p>
+                                    "This magazine represents far more than printed pages—it is fertile ground where young minds plant their thoughts and watch them bloom into profound expression."
+                                </p>
+                                <p className="font-medium text-white">
+                                    "This publication will carve pathways for intellectual growth and artistic exploration..."
+                                </p>
+                            </div>
+
+                            <button
+                                onClick={() => setIsOpen(true)}
+                                className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-[#D4A574] text-[#1B4332] rounded-full hover:bg-[#D4A574]/90 transition-all shadow-lg font-semibold text-sm sm:text-base group"
+                            >
+                                <BookOpen className="w-4 h-4" />
+                                Read Full Message
+                            </button>
+
+                            <div className="mt-6 p-4 bg-white/10 rounded-lg border border-[#D4A574]/30">
+                                <Quote className="w-6 h-6 text-[#D4A574]/60 mb-2" />
+                                <p className="italic text-white/80 text-sm leading-relaxed">
+                                    "Education is not about going to school and getting a degree. It's about widening your knowledge and absorbing the truth about life." - Shakuntala Devi
+                                </p>
+                            </div>
+                        </GlassCard>
                     </motion.div>
                 </div>
             </div>
@@ -105,30 +108,30 @@ export function PrincipalWelcome() {
                                 className="absolute inset-0 bg-black/40 backdrop-blur-md"
                             />
 
-                            {/* Modal Card */}
+                            {/* Modal Card - Glassmorphic */}
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                                 transition={{ type: "spring", duration: 0.5 }}
-                                className="relative w-full max-w-3xl max-h-[85vh] bg-background/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden flex flex-col"
+                                className="relative w-full max-w-3xl max-h-[85vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col glass-blur-16"
                             >
                                 {/* Header */}
-                                <div className="p-6 border-b border-border/10 flex justify-between items-center bg-primary/5">
+                                <div className="p-6 border-b border-[#D4A574]/30 flex justify-between items-center bg-[#1B4332]/40">
                                     <div>
-                                        <h3 className="text-2xl font-display font-bold text-foreground">Chief Principal's Message</h3>
-                                        <p className="text-muted-foreground text-sm">Full Address to the School Community</p>
+                                        <h3 className="text-2xl font-display font-bold text-white">Chief Principal's Message</h3>
+                                        <p className="text-white/70 text-sm">Full Address to the School Community</p>
                                     </div>
                                     <button
                                         onClick={() => setIsOpen(false)}
-                                        className="p-2 hover:bg-black/5 rounded-full transition-colors"
+                                        className="p-2 hover:bg-white/10 rounded-full transition-colors"
                                     >
-                                        <X className="w-6 h-6" />
+                                        <X className="w-6 h-6 text-white" />
                                     </button>
                                 </div>
 
                                 {/* Scrollable Content */}
-                                <div className="p-6 sm:p-8 overflow-y-auto space-y-6 text-foreground/90 leading-relaxed text-lg">
+                                <div className="p-6 sm:p-8 overflow-y-auto space-y-6 text-white/90 leading-relaxed text-base sm:text-lg">
                                     <p>
                                         "Today marks a watershed moment in the rich tapestry of Kabarnet High School's legacy.
                                         As I hold the inaugural issue of The Patriarch's School Magazine, I am reminded of a
@@ -166,8 +169,8 @@ export function PrincipalWelcome() {
                                         deeper meanings behind everyday occurrences, and to present complex ideas with clarity
                                         and grace speaks to the quality of minds we are nurturing within these walls."
                                     </p>
-                                    <div className="bg-primary/5 p-6 rounded-xl border-l-4 border-primary my-8">
-                                        <p className="italic font-medium text-lg">
+                                    <div className="bg-[#1B4332]/40 p-6 rounded-xl border-l-4 border-[#D4A574] my-8">
+                                        <p className="italic font-medium text-white/90">
                                             "Most importantly, I salute our students who have contributed their thoughts, stories,
                                             poems, and insights to this maiden publication. Like streams converging to form a mighty
                                             river, your contributions have created something larger and more powerful than any single
