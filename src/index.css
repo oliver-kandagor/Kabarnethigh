@@ -123,10 +123,6 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-image:
-      radial-gradient(circle at top left, hsl(var(--school-gold) / 0.12), transparent 30rem),
-      radial-gradient(circle at 80% 10%, hsl(var(--school-green) / 0.08), transparent 28rem),
-      linear-gradient(180deg, hsl(var(--school-cream)), hsl(45 35% 95%));
   }
 
   ::selection {

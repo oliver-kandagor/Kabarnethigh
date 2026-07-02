@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { ChevronDown } from "lucide-react";
@@ -17,13 +17,26 @@ const slides = [
 
 export function HeroSection() {
   const [current, setCurrent] = useState(0);
+  const timerRef = useRef<ReturnType<typeof window.setInterval> | null>(null);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) {
+      window.clearInterval(timerRef.current);
+    }
+
+    timerRef.current = window.setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 7000);
-    return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    resetTimer();
+    return () => {
+      if (timerRef.current) {
+        window.clearInterval(timerRef.current);
+      }
+    };
+  }, [resetTimer]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
@@ -134,7 +147,10 @@ export function HeroSection() {
         {slides.map((slide, index) => (
           <button
             key={slide.alt}
-            onClick={() => setCurrent(index)}
+            onClick={() => {
+              setCurrent(index);
+              resetTimer();
+            }}
             aria-label={`Show photo: ${slide.alt}`}
             className={`h-1.5 rounded-full transition-all duration-500 ${
               index === current ? "w-8 bg-secondary" : "w-3 bg-primary-foreground/40 hover:bg-primary-foreground/70"
