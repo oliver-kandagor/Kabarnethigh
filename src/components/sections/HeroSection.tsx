@@ -1,20 +1,47 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { ChevronDown } from "lucide-react";
 import schoolBuilding from "@/assets/school-building.jpg";
+import campusAerial from "@/assets/campus-aerial.jpg";
+import fieldAssembly from "@/assets/field-assembly.jpg";
+import schoolGate from "@/assets/school-gate.jpg";
 import { HeritageCard } from "@/components/ui/HeritageCard";
 
+const slides = [
+  { src: schoolBuilding, alt: "Kabarnet High School Main Building" },
+  { src: campusAerial, alt: "Aerial view of the Kabarnet High School campus" },
+  { src: fieldAssembly, alt: "Students gathered on the school field" },
+  { src: schoolGate, alt: "The main gate of Kabarnet High School" },
+];
+
 export function HeroSection() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 7000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
-      {/* Background Image */}
+      {/* Rotating Background Photography */}
       <div className="absolute inset-0">
-        <img
-          src={schoolBuilding}
-          alt="Kabarnet High School Main Building"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/70 to-primary/90" />
+        <AnimatePresence>
+          <motion.img
+            key={current}
+            src={slides[current].src}
+            alt={slides[current].alt}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover animate-kenburns"
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/85" />
       </div>
 
       {/* Decorative Elements */}
@@ -39,7 +66,14 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 }}
+            className="font-hand text-2xl md:text-3xl text-secondary mb-2 -rotate-1"
+          >
+            Karibu — welcome home, Patriarch.
+          </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -72,8 +106,6 @@ export function HeroSection() {
             moral integrity, and holistic development in the heart of Kenya's Rift Valley.
           </motion.p>
 
-
-
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -95,6 +127,20 @@ export function HeroSection() {
             <HeritageCard />
           </motion.div>
         </motion.div>
+      </div>
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {slides.map((slide, index) => (
+          <button
+            key={slide.alt}
+            onClick={() => setCurrent(index)}
+            aria-label={`Show photo: ${slide.alt}`}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              index === current ? "w-8 bg-secondary" : "w-3 bg-primary-foreground/40 hover:bg-primary-foreground/70"
+            }`}
+          />
+        ))}
       </div>
 
       {/* Scroll Indicator */}

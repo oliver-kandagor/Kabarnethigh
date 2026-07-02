@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
         display: ["Playfair Display", "Georgia", "serif"],
+        hand: ["Caveat", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",

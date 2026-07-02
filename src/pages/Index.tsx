@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { PrincipalWelcome } from "@/components/sections/PrincipalWelcome";
 import { SchoolIdentity } from "@/components/sections/SchoolIdentity";
+import { LifeAtSchoolSection } from "@/components/sections/LifeAtSchoolSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { LeadershipSection } from "@/components/sections/LeadershipSection";
 import { AcademicsSection } from "@/components/sections/AcademicsSection";
@@ -29,6 +30,7 @@ const Index = () => {
         <AboutSection />
         <PrincipalWelcome />
         <SchoolIdentity />
+        <LifeAtSchoolSection />
         <AcademicsSection />
         <LeadershipSection />
         <NewsSection />

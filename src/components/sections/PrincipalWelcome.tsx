@@ -11,7 +11,7 @@ export function PrincipalWelcome() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <section className="py-24 bg-transparent relative overflow-hidden">
+        <section className="py-24 bg-gradient-to-b from-transparent via-white/45 to-transparent relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Image Column */}
@@ -22,7 +22,7 @@ export function PrincipalWelcome() {
                         transition={{ duration: 0.6 }}
                         className="relative"
                     >
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white/50">
+                        <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-[10px] border-white/70 rotate-[-1deg] hover:rotate-0 transition-transform duration-500">
                             <img
                                 src={principalImg}
                                 alt="Chief Principal Mr. Julius N. Ndirangu"
@@ -46,11 +46,12 @@ export function PrincipalWelcome() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                             From the Chief Principal's Desk
                         </span>
+                        <p className="font-hand text-3xl text-primary mb-2 -rotate-1">A handwritten kind of welcome</p>
                         <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-8">
-                            Welcoming <span className="text-primary">Remarks</span>
+                            A note from <span className="text-primary">the Principal</span>
                         </h2>
 
                         <div className="space-y-6 text-muted-foreground text-lg leading-relaxed mb-8">
@@ -79,7 +80,7 @@ export function PrincipalWelcome() {
                             Read Full Message
                         </button>
 
-                        <div className="mt-8 p-6 bg-muted/50 rounded-xl border border-border">
+                        <div className="mt-8 p-6 bg-white/70 backdrop-blur rounded-2xl border border-primary/10 shadow-soft">
                             <Quote className="w-8 h-8 text-primary/40 mb-4" />
                             <p className="italic text-foreground font-medium">
                                 "Shakuntala Devi said, 'Education is not about going to school and getting a degree.
