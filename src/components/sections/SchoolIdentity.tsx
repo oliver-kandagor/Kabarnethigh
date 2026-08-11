@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import identityImage from "@/assets/Gemini_Generated_Image_c87ayxc87ayxc87a.png";
+import identityImage from "@/assets/campus-panoramic.jpg";
 
 export function SchoolIdentity() {
     return (
@@ -17,7 +17,7 @@ export function SchoolIdentity() {
                     <div className="relative aspect-[4/5] sm:aspect-video md:aspect-[24/9] w-full bg-black">
                         <img
                             src={identityImage}
-                            alt="Kabarnet High School Identity - Strong to Excel"
+                            alt="Panoramic view of the Kabarnet High School campus"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
 
