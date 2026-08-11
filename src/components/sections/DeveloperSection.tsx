@@ -5,7 +5,7 @@ import { Link } from "lucide-react";
 
 export function DeveloperSection() {
     return (
-        <section className="py-12 md:py-20 lg:py-32 relative overflow-hidden bg-gradient-to-b from-transparent to-primary/5">
+        <section id="oliverkandagor" className="py-12 md:py-20 lg:py-32 relative overflow-hidden bg-gradient-to-b from-transparent to-primary/5">
             {/* Background Decor */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-20 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-secondary/5 rounded-full blur-3xl opacity-50" />
